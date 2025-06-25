@@ -6,11 +6,20 @@ model = OllamaLLM(model="mistral", temperature=0.1)
 
 template = """
 Sei un esperto nel rispondere a domande su una pizzeria.
-Ecco alcune recensioni rilevanti:
+ Rispondi alle domande dei clienti basandoti SOLO sulle recensioni qui sotto.
+Se la domanda non riguarda la pizzeria o non ci sono recensioni pertinenti, rispondi educatamente che non puoi aiutare.
 
+RECENSIONI PERTINENTI:
 {reviews}
 
-Domanda da rispondere: {question}
+DOMANDA DEL CLIENTE: 
+{question}
+
+ISTRUZIONI:
+- Rispondi in italiano, in modo cortese e professionale
+- Se rilevante, menziona valutazioni e date delle recensioni
+- Non inventare dettagli non presenti nelle recensioni
+- Per domande su menu/prezzi, specifica che queste info non sono nelle recensioni
 """
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
