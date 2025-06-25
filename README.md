@@ -18,9 +18,11 @@ Questo progetto implementa un assistente AI specializzato in una pizzeria, capac
 
 1. **Ollama installato**: [Download Ollama](https://ollama.ai/)
 2. Modelli Ollama necessari:
-```bash
+```
 ollama pull mistral
 ollama pull mxbai-embed-large
+```
+# Struttura del progetto
 
 local_restaurant_chatAI/
 ├── main.py                 # Script principale per l'interfaccia utente
@@ -30,9 +32,16 @@ local_restaurant_chatAI/
 ├── README.md               # Questo file
 └── chrome_langchain_db/    # Cartella del database vettoriale (generata automaticamente)
 
-Dataset delle Recensioni
+# Dataset delle Recensioni
 Il progetto utilizza un file CSV con questo formato:
 
-Title	Review | Rating	| Date
-Ottima esperienza	La pizza era croccante e...	| 5	| 2024-05-15
-Servizio lento	Buone pizze ma il servizio...	| 3	| 2024-04-22
+| Title             | Review                          | Rating | Date       |
+|-------------------|---------------------------------|--------|------------|
+| Ottima esperienza | La pizza era croccante e...     | 5      | 2024-05-15 |
+| Servizio lento    | Buone pizze ma il servizio...   | 3      | 2024-04-22 |
+
+# Possibili Miglioramenti
+
+1. Aggiungere un'interfaccia web con Streamlit
+2. Implementare la cache delle risposte
+3. Aggiungere analisi del sentiment avanzata
