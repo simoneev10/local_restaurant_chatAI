@@ -1,11 +1,11 @@
-# 🍕 AI-Powered Pizza Restaurant Assistant
+# 🍕 AI-Powered Pizza Restaurant Assistant - Assistente PizzerIA
 
 Questo progetto implementa un assistente AI specializzato in una pizzeria, capace di rispondere alle domande dei clienti basandosi su recensioni reali archiviate in un database vettoriale.
 
 ## Caratteristiche Principali
 - Recupero di recensioni pertinenti usando embedding vettoriali
 - Generazione di risposte contestuali con modelli LLM (Mistral via Ollama)
-- Interfaccia conversazionale in tempo reale
+- Interfaccia grafica conversazionale in tempo reale
 - Persistenza del database vettoriale per performance ottimizzate
 
 ## Tecnologie Utilizzate
@@ -13,6 +13,7 @@ Questo progetto implementa un assistente AI specializzato in una pizzeria, capac
 - **LangChain** - Framework per applicazioni basate su LLM
 - **ChromaDB** - Database vettoriale open-source
 - **Pandas** - Elaborazione del dataset delle recensioni
+- **Streamlit** - Per l'interfaccia web
 
 ## Prerequisiti
 
@@ -25,6 +26,7 @@ ollama pull mxbai-embed-large
 # Struttura del progetto
 
 local_restaurant_chatAI/
+├── main.py                 # Script principale con input-output da terminale
 ├── main.py                 # Script principale per l'interfaccia utente
 ├── vector.py               # Gestione del database vettoriale
 ├── realistic_restaurant_reviews.csv  # Dataset delle recensioni
@@ -40,8 +42,16 @@ Il progetto utilizza un file CSV con questo formato:
 | Ottima esperienza | La pizza era croccante e...     | 5      | 2024-05-15 |
 | Servizio lento    | Buone pizze ma il servizio...   | 3      | 2024-04-22 |
 
-# Possibili Miglioramenti
-
-1. Aggiungere un'interfaccia web con Streamlit
-2. Implementare la cache delle risposte
-3. Aggiungere analisi del sentiment avanzata
+## Come avviare il progetto
+avviare due terminali, uno dove far partire Ollama
+```
+ollama serve
+```
+e nell'altro avviare app.py se si vuole la versione con interfaccia grafica tramite streamlit
+```
+streamlit run app.py
+```
+altrimenti per la classica interfaccia da terminale
+```
+python main.py
+```
